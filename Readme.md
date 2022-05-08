@@ -19,5 +19,3 @@ For now you can use it like typical notepad. There are some options already:
 2. Save - saves text in selected directory with .txt extention.
 3. Copy - copies text to clipboard so you can paste it anywhere even outside the project.
 4. Paste - pastes text from clipboard into the application even if it was copied outside the application.
-
-ebebe test
