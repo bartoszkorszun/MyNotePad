@@ -1,4 +1,5 @@
 package mainPackage;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -110,13 +111,13 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			pasteText();
 		}
 		if(object == font) {
-			System.out.println("Font changed");
+			
 		}
 		if(object == light) {
-			System.out.println("Theme set to light");
+			setLightTheme();
 		}
 		if(object == dark) {
-			System.out.println("Theme set to dark");
+			setDarkTheme();
 		}
 	}
 	
@@ -227,6 +228,20 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	      }
 	    }
 	}
-
+ 
+	public void setLightTheme() {
+		
+		NotePadFrame.themeColor.setThemeColor(Color.WHITE);
+		NotePadFrame.themeColor.setFontColor(Color.BLACK);
+		
+		RunNotePad.frame.initGUI();
+	}
 	
+	public void setDarkTheme() {
+		
+		NotePadFrame.themeColor.setThemeColor(Color.BLACK);
+		NotePadFrame.themeColor.setFontColor(Color.WHITE);
+		
+		RunNotePad.frame.initGUI();
+	}
 }
