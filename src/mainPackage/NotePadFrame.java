@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+//import javax.swing.UIManager;
+//import javax.swing.UnsupportedLookAndFeelException;
 
 public class NotePadFrame extends JFrame{
 
@@ -24,6 +24,8 @@ public class NotePadFrame extends JFrame{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
+		MenuBar.isThemeEnabled = false;
+		/*
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
@@ -35,7 +37,7 @@ public class NotePadFrame extends JFrame{
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		
+		*/
 		panel = new JPanel();
 		panel.setLayout(new GridLayout());
 		

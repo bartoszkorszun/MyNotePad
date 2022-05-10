@@ -31,6 +31,8 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		edit();
 		format();
 		theme();
+		
+		setBackground(NotePadFrame.themeColor.getThemeColor());
 	}
 	
 	JMenu file;
@@ -38,13 +40,18 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	public void file() {
 		
 		file = new JMenu("File");
+		file.setForeground(NotePadFrame.themeColor.getFontColor());
 		add(file);
 		
 		open = new JMenuItem("Open");
+		open.setBackground(NotePadFrame.themeColor.getThemeColor());
+		open.setForeground(NotePadFrame.themeColor.getFontColor());
 		file.add(open);
 		open.addActionListener(this);
 		
 		save = new JMenuItem("Save");
+		save.setBackground(NotePadFrame.themeColor.getThemeColor());
+		save.setForeground(NotePadFrame.themeColor.getFontColor());
 		file.add(save);
 		save.addActionListener(this);
 	}
@@ -54,13 +61,18 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	public void edit() {
 		
 		edit = new JMenu("Edit");
+		edit.setForeground(NotePadFrame.themeColor.getFontColor());
 		add(edit);
 		
 		copy = new JMenuItem("Copy");
+		copy.setBackground(NotePadFrame.themeColor.getThemeColor());
+		copy.setForeground(NotePadFrame.themeColor.getFontColor());
 		edit.add(copy);
 		copy.addActionListener(this);
 		
 		paste = new JMenuItem("Paste");
+		paste.setBackground(NotePadFrame.themeColor.getThemeColor());
+		paste.setForeground(NotePadFrame.themeColor.getFontColor());
 		edit.add(paste);
 		paste.addActionListener(this);
 	}
@@ -70,25 +82,36 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	public void format() {
 		
 		format = new JMenu("Format");
+		format.setForeground(NotePadFrame.themeColor.getFontColor());
 		add(format);
 		
 		font = new JMenuItem("Font");
+		font.setBackground(NotePadFrame.themeColor.getThemeColor());
+		font.setForeground(NotePadFrame.themeColor.getFontColor());
 		format.add(font);
 		font.addActionListener(this);
 	}
 	
 	JMenu theme;
 	JMenuItem light, dark;
+	static boolean isThemeEnabled;
 	public void theme() {
 		
 		theme = new JMenu("Theme");
+		theme.setForeground(NotePadFrame.themeColor.getFontColor());
 		add(theme);
 		
 		light = new JMenuItem("Light");
+		light.setBackground(NotePadFrame.themeColor.getThemeColor());
+		light.setForeground(NotePadFrame.themeColor.getFontColor());
+		light.setEnabled(isThemeEnabled);
 		theme.add(light);
 		light.addActionListener(this);
 		
 		dark = new JMenuItem("Dark");
+		dark.setBackground(NotePadFrame.themeColor.getThemeColor());
+		dark.setForeground(NotePadFrame.themeColor.getFontColor());
+		dark.setEnabled(!isThemeEnabled);
 		theme.add(dark);
 		dark.addActionListener(this);
 	}
@@ -234,6 +257,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		NotePadFrame.themeColor.setThemeColor(Color.WHITE);
 		NotePadFrame.themeColor.setFontColor(Color.BLACK);
 		
+		isThemeEnabled = !isThemeEnabled;
 		RunNotePad.frame.initGUI();
 	}
 	
@@ -242,6 +266,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		NotePadFrame.themeColor.setThemeColor(Color.BLACK);
 		NotePadFrame.themeColor.setFontColor(Color.WHITE);
 		
+		isThemeEnabled = !isThemeEnabled;
 		RunNotePad.frame.initGUI();
 	}
 }
