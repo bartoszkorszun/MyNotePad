@@ -134,7 +134,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			pasteText();
 		}
 		if(object == font) {
-			
+			setTextFont();
 		}
 		if(object == light) {
 			setLightTheme();
@@ -268,5 +268,11 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		
 		isThemeEnabled = !isThemeEnabled;
 		RunNotePad.frame.initGUI();
+	}
+
+	public void setTextFont() {
+		
+		ChangeFontFrame cff = new ChangeFontFrame();
+		cff.setVisible(true);
 	}
 }

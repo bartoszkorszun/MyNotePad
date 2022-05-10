@@ -14,6 +14,7 @@ public class NotePadFrame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	static ThemeColor themeColor = new ThemeColor();
+	static SetTextStyles sts = new SetTextStyles();
 	JPanel panel;
 	
 	public NotePadFrame() {
@@ -65,6 +66,6 @@ public class NotePadFrame extends JFrame{
 		panel.add(scrollPane);
 		add(panel);
 		
-		textArea.setFont(new Font("Calibri", Font.PLAIN, 15));
+		textArea.setFont(new Font(sts.getTextFont(), sts.getTextStyle(), sts.getTextSize()));
 	}
 }
