@@ -258,6 +258,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		NotePadFrame.themeColor.setFontColor(Color.BLACK);
 		
 		isThemeEnabled = !isThemeEnabled;
+		NotePadFrame.sText.setSavedText(RunNotePad.frame.textArea.getText());
 		RunNotePad.frame.initGUI();
 	}
 	
@@ -267,6 +268,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		NotePadFrame.themeColor.setFontColor(Color.WHITE);
 		
 		isThemeEnabled = !isThemeEnabled;
+		NotePadFrame.sText.setSavedText(RunNotePad.frame.textArea.getText());
 		RunNotePad.frame.initGUI();
 	}
 

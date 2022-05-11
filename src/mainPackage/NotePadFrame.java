@@ -7,14 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-//import javax.swing.UIManager;
-//import javax.swing.UnsupportedLookAndFeelException;
 
 public class NotePadFrame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	static ThemeColor themeColor = new ThemeColor();
 	static SetTextStyles sts = new SetTextStyles();
+	static SaveText sText = new SaveText();
 	JPanel panel;
 	
 	public NotePadFrame() {
@@ -26,19 +25,7 @@ public class NotePadFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		MenuBar.isThemeEnabled = false;
-		/*
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		}
-		*/
+		
 		panel = new JPanel();
 		panel.setLayout(new GridLayout());
 		
@@ -61,6 +48,8 @@ public class NotePadFrame extends JFrame{
 		
 		textArea.setBackground(themeColor.getThemeColor());
 		textArea.setForeground(themeColor.getFontColor());
+		
+		textArea.setText(sText.getSavedText());
 		
 		scrollPane = new JScrollPane(textArea);
 		panel.add(scrollPane);
