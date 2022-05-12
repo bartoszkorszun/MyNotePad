@@ -25,6 +25,10 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
+	/*
+	 * SETTING CONTENT OF MENU BAR
+	 */
+	
 	public MenuBar() {
 		
 		file();
@@ -34,6 +38,14 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		
 		setBackground(NotePadFrame.themeColor.getThemeColor());
 	}
+	
+	/*
+	 * THE FOLLOWING 4 METHODS CREATE OPTIONS AVAILABLE IN MENU BAR
+	 * FILE() - CONTAINS OPTIONS TO SAVE AND OPEN ANY .TXT FILE
+	 * EDIT() - CONTAINS OPTIONS THAT ALLOW USER TO SAVE TEXT TO CLIPPBOARD AND PASTE IT FROM CLIPBOARD
+	 * FORMAT() - ALLOWS USER TO FORMAT TEXT INSIDE APPLICATION
+	 * THEME() - ALLOWS USER TO CHANGE THEME TO LIGHT OR DARK
+	 */
 	
 	JMenu file;
 	JMenuItem open, save;
@@ -116,6 +128,10 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		dark.addActionListener(this);
 	}
 
+	/*
+	 * BUTTON ACTION LISTENER
+	 */
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -143,6 +159,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			setDarkTheme();
 		}
 	}
+	
+	/*
+	 * THIS 2 FOLLOWING METHODS ALLOWS USER TO SAVE FILE IN SELECTED DIRECTORY
+	 * SAVETXTFILE() - ALLOWS USER TO CHOSE DIRECTORY
+	 * SAVEFILE() - SAVES WRITTEN TEXT INTO .TXT FILE
+	 */
 	
 	File saveFile;
 	FileWriter fw;
@@ -193,6 +215,10 @@ public class MenuBar extends JMenuBar implements ActionListener {
         }
 	}
 	
+	/*
+	 * THIS METHOD ALLOWS USER TO OPEN .TXT FILE FROM ANY AVAILABLE DIRECTORY
+	 */
+	
 	public void openTxTFile() {
 		
 		JFileChooser chooser = new JFileChooser();
@@ -230,12 +256,21 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	    }
 	}
 	
+	/*
+	 * SAVING TEXT TO CLIPBOARD SO USER CAN PASTE IT ANYWHERE,
+	 * EVEN OUTSIDE THE APPLICATION
+	 */
+	
 	Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
 	public void copyText() {
 		
 		StringSelection stringSelection = new StringSelection(RunNotePad.frame.textArea.getText());
 		clpbrd.setContents (stringSelection, null);
 	}
+	
+	/*
+	 * PASTING TEXT SAVED IN CLIPBOARD
+	 */
 	
 	public void pasteText() {
 		
@@ -252,6 +287,10 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	    }
 	}
  
+	/*
+	 * METHOD SETTING THE LIGHT THEME
+	 */
+	
 	public void setLightTheme() {
 		
 		NotePadFrame.themeColor.setThemeColor(Color.WHITE);
@@ -261,6 +300,10 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		NotePadFrame.sText.setSavedText(RunNotePad.frame.textArea.getText());
 		RunNotePad.frame.initGUI();
 	}
+	
+	/*
+	 * METHOD SETTING THE DARK THEME
+	 */
 	
 	public void setDarkTheme() {
 		
@@ -272,6 +315,10 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		RunNotePad.frame.initGUI();
 	}
 
+	/*
+	 * METHOD THAT OPENS DIALOG IN WHICH USER CAN CHANGE FONT, STYLE AND SIZE OF THE TEXT
+	 */
+	
 	public void setTextFont() {
 		
 		ChangeFontFrame cff = new ChangeFontFrame();

@@ -14,10 +14,18 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+/*
+ * THIS DIALOG ALLOWS USER TO CHANGE FONT, STYLE AND SIZE OF THE TEXT IN APPLICATION
+ */
+
 public class ChangeFontFrame extends JDialog implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 
+	/*
+	 * SETTING THE DIALOG PROPERTIES
+	 */
+	
 	public ChangeFontFrame() {
 		
 		setTitle("Change Font");
@@ -29,6 +37,10 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 		
 		initGUI();
 	}
+	
+	/*
+	 * INITIALIZING CONTENT OF THE DIALOG
+	 */
 	
 	JButton apply;
 	JList<String> fontList, styleList;
@@ -63,6 +75,11 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 		labelPanel.setLayout(new GridLayout(1, 3));
 		labelPanel.setPreferredSize(new Dimension(425, 20));
 		
+		/*
+		 * CREATING CONTENT OF THE LISTS IN WHICH USER CAN CHOOSE
+		 * WHICH FONT, STYLE AND SIZE TO SET
+		 */
+		
 		String[] fontTab = {"Arial", "Calibri", "Comic Sans MS", "Georgia", "Lucida Handwriting", "Times New Roman", "Verdana"};
 		DefaultListModel<String> fontListModel = new DefaultListModel<>();
 		for(int i=0; i<fontTab.length; i++) {
@@ -90,6 +107,10 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 		styleList.setForeground(NotePadFrame.themeColor.getFontColor());
 		sizeList.setBackground(NotePadFrame.themeColor.getThemeColor());
 		sizeList.setForeground(NotePadFrame.themeColor.getFontColor());
+		
+		/*
+		 * SETTING CURRENT "FONT SETTINGS"
+		 */
 		
 		fontList.setSelectedIndex(NotePadFrame.sts.getFontIndex());
 		styleList.setSelectedIndex(NotePadFrame.sts.getTextStyle());
@@ -122,12 +143,20 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 		add(panel);
 	}
 
+	/*
+	 * APPLY BUTTON ACTION LISTENER
+	 */
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		Object o = e.getSource();
 		
 		if(o == apply) {
+			
+			/*
+			 * SETS FONT
+			 */
 			
 			int choice = fontList.getSelectedIndex();
 			switch(choice) {
@@ -147,6 +176,10 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			}
 			
+			/*
+			 * SETS STYLE
+			 */
+			
 			choice = styleList.getSelectedIndex();
 			switch(choice) {
 			case 0:
@@ -156,6 +189,10 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 			case 2:
 				NotePadFrame.sts.setTextStyle(choice);
 			}
+			
+			/*
+			 * SETS SIZE
+			 */
 			
 			choice = sizeList.getSelectedIndex();
 			switch(choice) {

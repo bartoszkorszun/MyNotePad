@@ -16,6 +16,10 @@ public class NotePadFrame extends JFrame{
 	static SaveText sText = new SaveText();
 	JPanel panel;
 	
+	/*
+	 * SETTING FRAME PROPERTIES
+	 */
+	
 	public NotePadFrame() {
 		
 		setTitle("My NotePad");
@@ -32,6 +36,10 @@ public class NotePadFrame extends JFrame{
 		initGUI();
 	}
 
+	/*
+	 * INITIALIZING CONTENT OF USER INTERFACE
+	 */
+	
 	JTextArea textArea;
 	JScrollPane scrollPane;
 	public void initGUI() {

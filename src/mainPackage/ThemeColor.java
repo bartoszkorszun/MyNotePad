@@ -2,6 +2,11 @@ package mainPackage;
 
 import java.awt.Color;
 
+/*
+ * GET/SET CLASS FOR THEME
+ * I THINK IT'S PRETTY SEFLDESCRIPTIVE SO I'LL LEAVE IT WITH ONLY THIS COMMENT :)
+ */
+
 public class ThemeColor {
 
 	Color backGroundColor = Color.WHITE;
