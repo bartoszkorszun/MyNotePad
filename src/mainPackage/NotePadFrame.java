@@ -3,6 +3,7 @@ package mainPackage;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -27,6 +28,9 @@ public class NotePadFrame extends JFrame{
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		ImageIcon icon = new ImageIcon(getClass().getResource("Resources/NotePadIcon.png"));
+		setIconImage(icon.getImage());
 		
 		MenuBar.isThemeEnabled = false;
 		
