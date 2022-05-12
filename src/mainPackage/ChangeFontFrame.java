@@ -1,7 +1,6 @@
 package mainPackage;
 
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class ChangeFontFrame extends JDialog implements ActionListener{
 
@@ -33,7 +31,7 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 	}
 	
 	JButton apply;
-	JList<JTextArea> fontList, styleList;
+	JList<String> fontList, styleList;
 	JList<Integer> sizeList;
 	public void initGUI() {
 		
@@ -66,46 +64,16 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 		labelPanel.setPreferredSize(new Dimension(425, 20));
 		
 		String[] fontTab = {"Arial", "Calibri", "Comic Sans MS", "Georgia", "Lucida Handwriting", "Times New Roman", "Verdana"};
-		JTextArea fa1 = new JTextArea();
-		JTextArea fa2 = new JTextArea();
-		JTextArea fa3 = new JTextArea();
-		JTextArea fa4 = new JTextArea();
-		JTextArea fa5 = new JTextArea();
-		JTextArea fa6 = new JTextArea();
-		JTextArea fa7 = new JTextArea();
-		for(int i=0; i<7; i++) {
-			switch(i) {
-			case 0:
-				fa1.setFont(new Font(fontTab[i], Font.PLAIN, 16));
-			case 1:
-				fa2.setFont(new Font(fontTab[i], Font.PLAIN, 16));
-			case 2:
-				fa3.setFont(new Font(fontTab[i], Font.PLAIN, 16));
-			case 3:
-				fa4.setFont(new Font(fontTab[i], Font.PLAIN, 16));
-			case 4:
-				fa5.setFont(new Font(fontTab[i], Font.PLAIN, 16));
-			case 5:
-				fa6.setFont(new Font(fontTab[i], Font.PLAIN, 16));
-			case 6:
-				fa7.setFont(new Font(fontTab[i], Font.PLAIN, 16));
-			}
-		}
-		JTextArea[] fontAreas = {fa1, fa2, fa3, fa4, fa5, fa6, fa7};
-		DefaultListModel<JTextArea> fontListModel = new DefaultListModel<>();
+		DefaultListModel<String> fontListModel = new DefaultListModel<>();
 		for(int i=0; i<fontTab.length; i++) {
-			fontListModel.addElement(fontAreas[i]);
+			fontListModel.addElement(fontTab[i]);
 		}
 		fontList = new JList<>(fontListModel);
 		
 		String[] styleTab = {"Plain", "Bold", "Italic"};
-		JTextArea sa1 = new JTextArea();
-		JTextArea sa2 = new JTextArea();
-		JTextArea sa3 = new JTextArea();
-		JTextArea[] styleAreas = {sa1, sa2, sa3};
-		DefaultListModel<JTextArea> styleListModel = new DefaultListModel<>();
+		DefaultListModel<String> styleListModel = new DefaultListModel<>();
 		for(int i=0; i<styleTab.length; i++) {
-			styleListModel.addElement(styleAreas[i]);
+			styleListModel.addElement(styleTab[i]);
 		}
 		styleList = new JList<>(styleListModel);
 		
@@ -164,19 +132,19 @@ public class ChangeFontFrame extends JDialog implements ActionListener{
 			int choice = fontList.getSelectedIndex();
 			switch(choice) {
 			case 0:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue().toString()); NotePadFrame.sts.setFontIndex(choice);
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 1:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue().toString()); NotePadFrame.sts.setFontIndex(choice);
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 2:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue().toString()); NotePadFrame.sts.setFontIndex(choice);
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 3:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue().toString()); NotePadFrame.sts.setFontIndex(choice);
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 4:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue().toString()); NotePadFrame.sts.setFontIndex(choice);
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 5:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue().toString()); NotePadFrame.sts.setFontIndex(choice);
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 6:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue().toString()); NotePadFrame.sts.setFontIndex(choice);
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			}
 			
 			choice = styleList.getSelectedIndex();
