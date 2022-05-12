@@ -1,18 +1,20 @@
 package mainPackage;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class ChangeFontFrame extends JFrame implements ActionListener{
+public class ChangeFontFrame extends JDialog implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,6 +24,7 @@ public class ChangeFontFrame extends JFrame implements ActionListener{
 		setSize(445, 250);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setModalityType(ModalityType.APPLICATION_MODAL);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		initGUI();
@@ -37,6 +40,7 @@ public class ChangeFontFrame extends JFrame implements ActionListener{
 		JPanel scrollPanel = new JPanel();
 		JPanel buttonPanel = new JPanel();
 		
+		panel.setBackground(NotePadFrame.themeColor.getThemeColor());
 		labelPanel.setBackground(NotePadFrame.themeColor.getThemeColor());
 		buttonPanel.setBackground(NotePadFrame.themeColor.getThemeColor());
 		
@@ -48,11 +52,16 @@ public class ChangeFontFrame extends JFrame implements ActionListener{
 		styleLabel.setForeground(NotePadFrame.themeColor.getFontColor());
 		sizeLabel.setForeground(NotePadFrame.themeColor.getFontColor());
 		
+		fontLabel.setBorder(BorderFactory.createLineBorder(NotePadFrame.themeColor.getFontColor()));
+		styleLabel.setBorder(BorderFactory.createLineBorder(NotePadFrame.themeColor.getFontColor()));
+		sizeLabel.setBorder(BorderFactory.createLineBorder(NotePadFrame.themeColor.getFontColor()));
+		
 		labelPanel.add(fontLabel);
 		labelPanel.add(styleLabel);
 		labelPanel.add(sizeLabel);
-		
+
 		labelPanel.setLayout(new GridLayout(1, 3));
+		labelPanel.setPreferredSize(new Dimension(425, 20));
 		
 		String[] fontTab = {"Arial", "Calibri", "Comic Sans MS", "Georgia", "Lucida Handwriting", "Times New Roman", "Verdana"};
 		DefaultListModel<String> fontListModel = new DefaultListModel<>();
@@ -82,6 +91,10 @@ public class ChangeFontFrame extends JFrame implements ActionListener{
 		sizeList.setBackground(NotePadFrame.themeColor.getThemeColor());
 		sizeList.setForeground(NotePadFrame.themeColor.getFontColor());
 		
+		fontList.setSelectedIndex(NotePadFrame.sts.getFontIndex());
+		styleList.setSelectedIndex(NotePadFrame.sts.getTextStyle());
+		sizeList.setSelectedIndex(NotePadFrame.sts.getSizeIndex());
+		
 		JScrollPane sp1 = new JScrollPane(fontList);
 		JScrollPane sp2 = new JScrollPane(styleList);
 		JScrollPane sp3 = new JScrollPane(sizeList);
@@ -91,12 +104,16 @@ public class ChangeFontFrame extends JFrame implements ActionListener{
 		scrollPanel.add(sp3);
 		
 		scrollPanel.setLayout(new GridLayout(1, 3));
+		scrollPanel.setPreferredSize(new Dimension(425, 150));
 		
 		apply = new JButton("Apply");
 		apply.addActionListener(this);
 		apply.setBackground(NotePadFrame.themeColor.getThemeColor());
 		apply.setForeground(NotePadFrame.themeColor.getFontColor());
+		apply.setBounds(345, 0, 80, 24);
+		buttonPanel.setLayout(null);
 		buttonPanel.add(apply);
+		buttonPanel.setPreferredSize(new Dimension(425, 24));
 		
 		panel.add(labelPanel);
 		panel.add(scrollPanel);
@@ -115,55 +132,55 @@ public class ChangeFontFrame extends JFrame implements ActionListener{
 			int choice = fontList.getSelectedIndex();
 			switch(choice) {
 			case 0:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue());
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 1:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue());
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 2:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue());
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 3:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue());
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 4:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue());
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 5:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue());
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			case 6:
-				NotePadFrame.sts.setTextFont(fontList.getSelectedValue());
+				NotePadFrame.sts.setTextFont(fontList.getSelectedValue()); NotePadFrame.sts.setFontIndex(choice);
 			}
 			
 			choice = styleList.getSelectedIndex();
 			switch(choice) {
 			case 0:
-				NotePadFrame.sts.setTextStyle(styleList.getSelectedIndex());
+				NotePadFrame.sts.setTextStyle(choice);
 			case 1:
-				NotePadFrame.sts.setTextStyle(styleList.getSelectedIndex());
+				NotePadFrame.sts.setTextStyle(choice);
 			case 2:
-				NotePadFrame.sts.setTextStyle(styleList.getSelectedIndex());
+				NotePadFrame.sts.setTextStyle(choice);
 			}
 			
 			choice = sizeList.getSelectedIndex();
 			switch(choice) {
 			case 0:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 1:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 2:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 3:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 4:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 5:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 6:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 7:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 8:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 9:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			case 10:
-				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue());
+				NotePadFrame.sts.setTextSize(sizeList.getSelectedValue()); NotePadFrame.sts.setSizeIndex(choice);
 			}
 			
 			NotePadFrame.sText.setSavedText(RunNotePad.frame.textArea.getText());
