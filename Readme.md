@@ -22,10 +22,10 @@ I'm using Eclipse IDE for Java Developers. In that case you just have to downloa
 ## How to use project
 
 You can use it like typical notepad. There are some options I will describe below:
-1.1. File/Open - you can open any .txt file and the text should appear in the text area.
-1.2. File/Save - saves text in selected directory with .txt extention.
-2.1. Edit/Copy - copies text to clipboard so you can paste it anywhere even outside the project.
-2.2. Edit/Paste - pastes text from clipboard into the application even if it was copied outside the application.
-3. Format/Font - opens dialog window in which you can edit font, style and size of the button.
-4.1. Theme/Light - changes theme to light.
-4.2. Theme/Dark - changes theme to dark.
+1. File/Open - you can open any .txt file and the text should appear in the text area.
+2. File/Save - saves text in selected directory with .txt extention.
+3. Edit/Copy - copies text to clipboard so you can paste it anywhere even outside the project.
+4. Edit/Paste - pastes text from clipboard into the application even if it was copied outside the application.
+5. Format/Font - opens dialog window in which you can edit font, style and size of the button.
+6. Theme/Light - changes theme to light.
+7. Theme/Dark - changes theme to dark.
