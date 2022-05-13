@@ -1,6 +1,6 @@
 # MyNotePad
 
-In this project I have tried to create notepad with few standard functionalities.
+In this project I have created notepad with few standard functionalities.
 
 ## Project description
 
